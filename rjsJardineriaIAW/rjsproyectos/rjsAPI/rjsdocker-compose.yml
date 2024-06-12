@@ -1,0 +1,41 @@
+version: "3"
+services:
+  rjspostgres.api:
+    image: postgres:13.3
+    container_name: postgresAPI
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pswJardineria
+      POSTGRES_DB: Jardineria
+      POSTGRES_USER: postgres
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      rjsnetwork:
+        ipv4_address: 172.10.10.10
+    
+  nginex.api:
+    container_name: jardineriaAPI
+    image: api:latest
+    ports:
+      - "3009:3001"
+    environment:
+      - USER=rjstaller
+      - PASSWORD=rjstaller
+      - REPO=https://github.com/morgadodesarrollador/ApiJardineriaNest.git
+      - DB_HOST=172.10.10.10
+      - DB_PORT=5432
+    networks:
+      rjsnetwork:
+        ipv4_address: 172.10.10.20
+
+
+
+networks:
+  rjsnetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.10.10.0/24
