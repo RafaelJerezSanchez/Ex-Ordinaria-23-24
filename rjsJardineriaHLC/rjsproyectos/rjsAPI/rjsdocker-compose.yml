@@ -22,8 +22,8 @@ services:
     ports:
       - "3009:3001"
     environment:
-      - USER=rjstaller
-      - PASSWORD=rjstaller
+      - USER=rjsjardineria
+      - PASSWORD=rjsjardineria
       - REPO=https://github.com/morgadodesarrollador/ApiJardineriaNest.git
       - DB_HOST=172.10.10.10
       - DB_PORT=5432

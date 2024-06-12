@@ -1,25 +1,24 @@
-# Use the latest Ubuntu base image
 FROM nginx:latest
 
-# Set the working directory
+
 WORKDIR /root
 
-# Install required packages
+
 RUN apt-get update \
     && apt-get install -y nano net-tools iputils-ping dos2unix openssh-server openssh-client git curl nodejs npm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Create folder to download data.
+# Crear la carpeta para descargar los archivos
 RUN mkdir -p /root/api
 
-    # Create logs directory
+    # Crear directorio de logs 
 RUN mkdir -p /root/logs
 
-# Create an empty logs.txt file
+# Crear un archivo logs.txt vacío
 RUN touch /root/logs/logs.txt
 
-# Copy start.sh
+# Copiar start.sh
 COPY rjsscripts/rjsstart.sh /root/start.sh
 RUN chmod +x /root/start.sh
 
