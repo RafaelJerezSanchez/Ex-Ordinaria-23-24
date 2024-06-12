@@ -18,7 +18,7 @@ services:
     
   nginex.api:
     container_name: jardineriaAPI
-    image: api:latest
+    image: rjsjardineria:latest
     ports:
       - "3009:3001"
     environment:

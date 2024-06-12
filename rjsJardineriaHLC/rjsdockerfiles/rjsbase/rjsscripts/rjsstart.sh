@@ -10,7 +10,7 @@ DB_PORT=$DB_PORT
 cd /root/api
 rm -rf .git
 
-git config --global init.defaultBranch master
+git config --global init.defaultBranch main
 git config --global http.sslverify false
 git init
 git remote add origin ${REPO}
@@ -26,9 +26,7 @@ npm install --force
 
 npm install @nestjs/common
 
-npm audit fix --force
-
-
-
 
 npm run start dev
+
+tail -f /dev/null
