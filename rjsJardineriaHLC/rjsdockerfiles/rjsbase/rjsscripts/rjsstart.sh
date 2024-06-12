@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-ping -c 4 172.10.10.10
+ping -c 4 192.168.5.192
 
 REPO=$REPO
 DB_HOST=$DB_HOST

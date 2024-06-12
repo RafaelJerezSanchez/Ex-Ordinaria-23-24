@@ -5,18 +5,7 @@ WORKDIR /root
 
 
 RUN apt-get update \
-    && apt-get install -y \
-    nano \
-    net-tools \
-    iputils-ping \
-    dos2unix \
-    openssh-server\ 
-    openssh-client \
-    git \
-    curl \
-    nodejs \
-    npm \
-    yarn \
+    && apt-get install -y nano net-tools iputils-ping dos2unix openssh-server openssh-client git curl nodejs npm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
